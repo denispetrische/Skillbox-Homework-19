@@ -16,12 +16,25 @@ namespace Skillbox_Homework_19.Model
                                                      typeof(Mammal)
          };
 
-        public static IAnimal ProduceAnimal(string type, string name, int age, string colour)
+        public static IAnimal ProduceAnimal(string type, string name, string age, string colour)
         {
-            IAnimal temp = new DefaultAnimal() { Name = "qwer", Age = 2, Colour = "Black"};
+            foreach (Type sometype in types)
+            {
+                Debug.WriteLine(sometype.Name);
+                Debug.WriteLine(type);
 
-            
+                if (sometype.Name == type)
+                {
+                    var myAnimal = (IAnimal)Activator.CreateInstance(sometype);
+                    myAnimal.Name = name;
+                    myAnimal.Age = age;
+                    myAnimal.Colour = colour;
 
+                    return myAnimal;
+                }
+            }
+
+            IAnimal temp = new DefaultAnimal() { Name = "Default", Age = "0", Colour = "Default"};             
             return temp;
         }
     }

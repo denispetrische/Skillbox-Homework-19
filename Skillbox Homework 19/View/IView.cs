@@ -11,8 +11,18 @@ namespace Skillbox_Homework_19
     {
         public List<IAnimal> ItemsSource { set; }
 
-        public int SelectedItemNumber { get; }
+        public int SelectedItemNumber { get; set; }
+
+        public string Type { get; set; }
+
+        public string Name { get; set; }
+
+        public string Age { get; set; }
+
+        public string Colour { get; set; }
 
         public void UpdateListView(List<IAnimal> animals);
+
+        public void MessageShow(string message);
     }
 }

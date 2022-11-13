@@ -19,7 +19,7 @@ namespace Skillbox_Homework_19
         public event IModel.ViewUpdateHandler UpdateNeed = delegate { };
 
 
-        public void AddNewAnimal(string type, string name, int age, string colour)
+        public void AddNewAnimal(string type, string name, string age, string colour)
         {
             animals.Add(AnimalFactory.ProduceAnimal(type,name,age,colour));
 
@@ -37,6 +37,21 @@ namespace Skillbox_Homework_19
         }
 
         public void SaveAnimalInfo()
+        {
+
+        }
+
+        public void SaveTxt(int number)
+        {
+
+        }
+
+        public void SaveXls(int number)
+        {
+
+        }
+
+        public void SavePdf(int number)
         {
 
         }

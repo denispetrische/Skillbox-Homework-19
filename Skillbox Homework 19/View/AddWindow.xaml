@@ -18,6 +18,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <TextBlock Text="Type:" TextAlignment="Center" Height="20"/>
+            <TextBox Name="textboxType" Text="" TextAlignment="Center" Height="20"/>
             <TextBlock Text="Name:" TextAlignment="Center" Height="20"/>
             <TextBox Name="textboxName" Text="" TextAlignment="Center" Height="20"/>
             <TextBlock Text="Age:" TextAlignment="Center" Height="20"/>

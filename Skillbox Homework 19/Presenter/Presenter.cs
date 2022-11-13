@@ -23,7 +23,14 @@ namespace Skillbox_Homework_19
 
         public void AddPressed()
         {
-            model.AddNewAnimal("qwer","qwer",1,"qwer");
+            if (view.Type == "" || view.Name == "" || view.Age == "" || view.Colour == "")
+            {
+                view.MessageShow("Все поля должны быть заполнены");
+            }
+            else
+            {
+                model.AddNewAnimal(view.Type, view.Name, view.Age, view.Colour);
+            }
         }
 
         public void DeletePressed()
@@ -33,18 +40,54 @@ namespace Skillbox_Homework_19
 
         public void EditPressed()
         {
-
+            if (view.Name == "" || view.Age == "" || view.Colour == "")
+            {
+                view.MessageShow("Все поля должны быть заполнены");
+            }
+            else
+            {
+                model.EditAnimal();
+            }
         }
 
-        public void SavePressed()
+        public void SaveTxt()
         {
+            if (view.SelectedItemNumber == null)
+            {
+                view.MessageShow("Выберите элемент списка");
+            }
+            else
+            {
+                model.SaveTxt(view.SelectedItemNumber);
+            }           
+        }
 
+        public void SaveXls()
+        {
+            if (view.SelectedItemNumber == null)
+            {
+                view.MessageShow("Выберите элемент списка");
+            }
+            else
+            {
+                model.SaveXls(view.SelectedItemNumber);
+            }
+        }
+
+        public void SavePdf()
+        {
+            if (view.SelectedItemNumber == null)
+            {
+                view.MessageShow("Выберите элемент списка");
+            }
+            else
+            {
+                model.SavePdf(view.SelectedItemNumber);
+            }
         }
 
         private void UpdateView(List<IAnimal> animals)
         {
-            System.Diagnostics.Debug.WriteLine("Here");
-
             foreach (var item in animals)
             {
                 System.Diagnostics.Debug.WriteLine($"{item.Name} {item.Age} {item.Colour}");

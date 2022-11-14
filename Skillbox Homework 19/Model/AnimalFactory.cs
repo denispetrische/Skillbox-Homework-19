@@ -20,9 +20,6 @@ namespace Skillbox_Homework_19.Model
         {
             foreach (Type sometype in types)
             {
-                Debug.WriteLine(sometype.Name);
-                Debug.WriteLine(type);
-
                 if (sometype.Name == type)
                 {
                     var myAnimal = (IAnimal)Activator.CreateInstance(sometype);

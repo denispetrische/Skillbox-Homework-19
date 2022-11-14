@@ -16,11 +16,9 @@ namespace Skillbox_Homework_19
 
         public void AddNewAnimal(string type, string name, string age, string colour);
 
-        public void DeleteAnimal();
+        public void DeleteAnimal(int index);
 
-        public void EditAnimal();
-
-        public void SaveAnimalInfo();
+        public void EditAnimal(int index, string name, string age, string colour);
 
         public void SaveTxt(int number);
 

@@ -35,7 +35,14 @@ namespace Skillbox_Homework_19
 
         public void DeletePressed()
         {
-
+            if (view.SelectedItemNumber == null)
+            {
+                view.MessageShow("Выберите элемент списка");
+            }
+            else
+            {
+                model.DeleteAnimal(view.SelectedItemNumber);
+            }
         }
 
         public void EditPressed()
@@ -46,7 +53,14 @@ namespace Skillbox_Homework_19
             }
             else
             {
-                model.EditAnimal();
+                if (view.SelectedItemNumber == null)
+                {
+                    view.MessageShow("Выберите элемент списка");
+                }
+                else
+                {
+                    model.EditAnimal(view.SelectedItemNumber, view.Name, view.Age, view.Colour);
+                }
             }
         }
 

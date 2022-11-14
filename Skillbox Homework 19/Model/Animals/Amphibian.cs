@@ -8,6 +8,7 @@ namespace Skillbox_Homework_19.Model.Animals
 {
     class Amphibian : IAnimal
     {
+        public ISaver SaveMode { get; set; }
         public string Name { get; set; }
 
         public string Age { get; set; }

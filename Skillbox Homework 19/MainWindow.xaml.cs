@@ -83,23 +83,43 @@ namespace Skillbox_Homework_19
         {
             editWindow = new EditWindow();
             editWindow.buttonEdit.Click += (s, e) => EditWindowButtonPressed(s, e);
+            editWindow.textboxName.Text = (listview.SelectedItem as IAnimal).Name;
+            editWindow.textboxAge.Text = (listview.SelectedItem as IAnimal).Age;
+            editWindow.textboxColour.Text = (listview.SelectedItem as IAnimal).Colour;
             editWindow.Show();
         }
 
         public void EditWindowButtonPressed(object sender, RoutedEventArgs e)
         {
-            Name = editWindow.textboxName.Text;
-            Age = editWindow.textboxAge.Text;
-            Colour = editWindow.textboxColour.Text;
+            if (listview.SelectedItem == null)
+            {
+                MessageShow("Выберите элемент");
+            }
+            else
+            {
+                SelectedItemNumber = listview.SelectedIndex;
 
-            presenter.EditPressed();
+                Name = editWindow.textboxName.Text;
+                Age = editWindow.textboxAge.Text;
+                Colour = editWindow.textboxColour.Text;
+
+                presenter.EditPressed();
+            }
 
             editWindow.Close();
         }
 
         public void DeletePressed(object sender, RoutedEventArgs e)
         {
-            SelectedItemNumber = listview.SelectedIndex;
+            if (listview.SelectedItem == null)
+            {
+                MessageShow("Выберите элемент");
+            }
+            else
+            {
+                SelectedItemNumber = listview.SelectedIndex;
+                presenter.DeletePressed();
+            }
         }
 
         public void SavePressed(object sender, RoutedEventArgs e)
@@ -113,20 +133,44 @@ namespace Skillbox_Homework_19
 
         public void SaveWindowButtonTxtPressed(object sender, RoutedEventArgs e)
         {
-            presenter.SaveTxt();
-            saveWindow.Close();
+            if (listview.SelectedItem == null)
+            {
+                MessageShow("Выберите элемент");
+            }
+            else
+            {
+                SelectedItemNumber = listview.SelectedIndex;
+                presenter.SaveTxt();
+                saveWindow.Close();
+            }
         }
 
         public void SaveWindowButtonXlsPressed(object sender, RoutedEventArgs e)
         {
-            presenter.SaveXls();
-            saveWindow.Close();
+            if (listview.SelectedItem == null)
+            {
+                MessageShow("Выберите элемент");
+            }
+            else
+            {
+                SelectedItemNumber = listview.SelectedIndex;
+                presenter.SaveXls();
+                saveWindow.Close();
+            }
         }
 
         public void SaveWindowButtonPdfPressed(object sender, RoutedEventArgs e)
         {
-            presenter.SavePdf();
-            saveWindow.Close();
+            if (listview.SelectedItem == null)
+            {
+                MessageShow("Выберите элемент");
+            }
+            else
+            {
+                SelectedItemNumber = listview.SelectedIndex;
+                presenter.SavePdf();
+                saveWindow.Close();
+            }
         }
 
         public void MessageShow(string message)

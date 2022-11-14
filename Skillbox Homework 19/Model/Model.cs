@@ -26,34 +26,38 @@ namespace Skillbox_Homework_19
             UpdateNeed?.Invoke(animals);
         }
 
-        public void DeleteAnimal()
+        public void DeleteAnimal(int index)
         {
+            animals.Remove(animals[index]);
 
+            UpdateNeed?.Invoke(animals);
         }
 
-        public void EditAnimal()
+        public void EditAnimal(int index, string name, string age, string colour)
         {
+            animals[index].Name = name;
+            animals[index].Age = age;
+            animals[index].Colour = colour;
 
-        }
-
-        public void SaveAnimalInfo()
-        {
-
+            UpdateNeed?.Invoke(animals);
         }
 
         public void SaveTxt(int number)
         {
-
+            animals[number].SaveMode = new TxtSaver();
+            animals[number].SaveMode.Save(animals[number].Name, animals[number].Age, animals[number].Colour);
         }
 
         public void SaveXls(int number)
         {
-
+            animals[number].SaveMode = new XlsSaver();
+            animals[number].SaveMode.Save(animals[number].Name, animals[number].Age, animals[number].Colour);
         }
 
         public void SavePdf(int number)
         {
-
+            animals[number].SaveMode = new PdfSaver();
+            animals[number].SaveMode.Save(animals[number].Name, animals[number].Age, animals[number].Colour);
         }
     }
 }
